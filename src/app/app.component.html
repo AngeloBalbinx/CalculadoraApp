@@ -1,20 +1,12 @@
 <div class="container">
   <h1>{{titulo}}</h1>
-  <div class="container">
-   <p>Operando A</p>
-  <input type="number" class="form-control-sm" [(ngModel)]="operandoA">
-  </div>
-  <div class="container">
-    <p>Operando B</p>
-   <input type="number" class="form-control-sm" style="margin-bottom: 10px;" [(ngModel)]="operandoB">
-   </div>
-   <div class="botones">
-    <button class="btn btn-primary" (click)="sumar()">Sumar</button>
-    <button class="btn btn-warning" (click)="restar()">Restar</button>
-    <button class="btn btn-danger" (click)="multiplicar()">Multiplicar</button>
-    <button class="btn btn-dark" (click)="dividir()">Dividir</button>
+  <app-formulario (resultadoSuma)="procesarResultado($event)"
+  (resultadoResta)="procesarResultado($event)"
+  (resultadoMultiplicacion)="procesarResultado($event)"
+  (resultadoDivision)="procesarResultado($event)"
+  ></app-formulario>
+  <app-resultado [resultadoHijo]="resultadoPadre">
+    
 
-   </div>
-
-   <p>Resultado: {{resultado}}</p>
+  </app-resultado>
 </div>
